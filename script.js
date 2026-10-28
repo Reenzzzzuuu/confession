@@ -7,7 +7,7 @@ const CONFIG = {
   teaseDelayMs: 3000,
   days: ["Friday evening", "Saturday", "Next week"],
   places: ["Dinner", "Coffee and a walk", "Something casual", "Surprise me"],
-  showSealedNote: false,
+  showSealedNote: true,
   sealedNote: [
     "I’m not good at saying things like this out loud, so I wrote it down.",
     "I like you, more than just as a friend, and I’d like to see where this could go if you’d want that too.",
@@ -167,7 +167,7 @@ function calendarView() {
 function introView() {
   setMain(
     el("h1", "", "I like you."),
-    el("p", "", "I’d like to take you on a date."),
+    el("p", "", "I’d like to take you on a date Kristel."),
     el("p", "sub", "There’s more I want to tell you, but I’d rather say it in person.")
   );
   setStub(
@@ -186,7 +186,7 @@ function teaseView() {
 }
 
 function pickDateView() {
-  setMain(el("h1", "", "Pick a day."), el("p", "", "Whatever works for you. I’ll make it work."));
+  setMain(el("h1", "", "Pick a day."), el("p", "", "Whatever works for you. I’ll make it work.😉"));
   setStub(
     fieldsView(),
     calendarView(),

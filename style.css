@@ -72,8 +72,14 @@ textarea:focus-visible {
 
 .main h1 {
   margin: 0 0 14px;
-  font: 400 clamp(58px, 17vw, 84px) / 0.95 'Instrument Serif', Georgia, serif;
+  font: 400 clamp(44px, 13vw, 64px) / 0.95 'Instrument Serif', Georgia, serif;
   letter-spacing: -0.02em;
+}
+
+
+.main h1.tease {
+  font-size: clamp(44px, 13vw, 64px);
+  animation: pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1);
 }
 
 .main p {
@@ -346,6 +352,17 @@ textarea {
   }
 }
 
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes stamp {
   from {
     opacity: 0;
@@ -359,7 +376,8 @@ textarea {
 
 @media (prefers-reduced-motion: reduce) {
   .ticket,
-  .stamp {
+  .stamp,
+  .main h1.tease {
     animation: none;
   }
 }

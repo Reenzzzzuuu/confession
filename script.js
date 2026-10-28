@@ -1,7 +1,7 @@
 const CONFIG = {
   from: "me",
   serial: "000143",
-  ntfyTopic: "CHANGE-ME",
+  ntfyTopic: "tomybossinggg",
   calendarLabel: "I’ll suggest one",
   teaseMessage: "So you do like me HAHAHA",
   teaseDelayMs: 3000,
@@ -167,7 +167,7 @@ function calendarView() {
 function introView() {
   setMain(
     el("h1", "", "I like you."),
-    el("p", "", "I’d like to take you on a date."),
+    el("p", "", "I’d like to take you on a date, Kristel."),
     el("p", "sub", "There’s more I want to tell you, but I’d rather say it in person.")
   );
   setStub(
@@ -227,7 +227,7 @@ function planView() {
 }
 
 function confirmView() {
-  setMain(el("h1", "", "Almost there baby."), el("p", "", "Anything you’d like me to know baby? You can leave it empty. But I prefer if you say something."));
+  setMain(el("h1", "", "Almost there baby."), el("p", "", "Anything you’d like me to know baby? You can leave it empty. But I prefer if you say something.😉"));
 
   const note = el("textarea");
   note.placeholder = "Optional note, like a time that suits you";
@@ -288,7 +288,7 @@ function noteView() {
 
 function laterView() {
   setMain(
-    el("h1", "", "Of course."),
+    el("h1", "", "Awww but it's okay."),
     el("p", "", "Thank you for being honest with me. There’s no pressure at all.")
   );
 

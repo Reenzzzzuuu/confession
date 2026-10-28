@@ -13,7 +13,6 @@ const CONFIG = {
   "I like you, not just as friends, and I’d like to know if you feel the same way.",
   "We can talk about it on our date. Whatever you think, I’d rather you be honest than regret it later."
 ]
-  ]
 };
 
 const DAY_OPTIONS = [...CONFIG.days, CONFIG.calendarLabel];

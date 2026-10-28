@@ -9,7 +9,6 @@ const CONFIG = {
   places: ["Dinner", "Coffee and a walk", "Something casual", "Surprise me"],
   showSealedNote: true,
   sealedNote: [
-    sealedNote: [
   "I’m not good at saying things like this out loud, so I wrote it down.",
   "I like you, not just as friends, and I’d like to know if you feel the same way.",
   "We can talk about it on our date. Whatever you think, I’d rather you be honest than regret it later."

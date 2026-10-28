@@ -1,8 +1,10 @@
 const CONFIG = {
   from: "me",
   serial: "000143",
-  ntfyTopic: "tomybossinggg",
+  ntfyTopic: "CHANGE-ME",
   calendarLabel: "I’ll suggest one",
+  teaseMessage: "So you do like me HAHAHA",
+  teaseDelayMs: 3000,
   days: ["Friday evening", "Saturday", "Next week"],
   places: ["Dinner", "Coffee and a walk", "Something casual", "Surprise me"],
   showSealedNote: false,
@@ -164,15 +166,23 @@ function calendarView() {
 
 function introView() {
   setMain(
-    el("h1", "", "I admire you."),
+    el("h1", "", "I like you."),
     el("p", "", "I’d like to take you on a date."),
     el("p", "sub", "There’s more I want to tell you, but I’d rather say it in person.")
   );
   setStub(
     fieldsView(),
-    sliderView("Slide to say yes", planView),
+    sliderView("Slide to say yes", teaseView),
     btn("Maybe another time", "link", laterView)
   );
+}
+
+function teaseView() {
+  setMain(el("h1", "tease", CONFIG.teaseMessage));
+  setStub(fieldsView(), btn("Continue", "link", planView));
+  setTimeout(() => {
+    if ($("main").querySelector(".tease")) planView();
+  }, CONFIG.teaseDelayMs);
 }
 
 function pickDateView() {
@@ -190,7 +200,7 @@ function pickDateView() {
 function planView() {
   if (state.when && state.where) return confirmView();
 
-  setMain(el("h1", "", "Good."), el("p", "", "Now let’s plan it. Two quick choices."));
+  setMain(el("h1", "long", "I had a feeling."), el("p", "", "Now let’s plan it. Two quick choices."));
 
   const choosingPlace = Boolean(state.when);
   const options = choosingPlace ? CONFIG.places : DAY_OPTIONS;
@@ -217,7 +227,7 @@ function planView() {
 }
 
 function confirmView() {
-  setMain(el("h1", "", "Almost."), el("p", "", "Anything you’d like me to know? You can leave it empty."));
+  setMain(el("h1", "", "Almost there baby."), el("p", "", "Anything you’d like me to know baby? You can leave it empty. But I prefer if you say something."));
 
   const note = el("textarea");
   note.placeholder = "Optional note, like a time that suits you";

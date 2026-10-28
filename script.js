@@ -164,7 +164,7 @@ function calendarView() {
 
 function introView() {
   setMain(
-    el("h1", "", "I like you."),
+    el("h1", "", "I admire you."),
     el("p", "", "I’d like to take you on a date."),
     el("p", "sub", "There’s more I want to tell you, but I’d rather say it in person.")
   );

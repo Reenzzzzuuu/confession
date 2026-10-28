@@ -1,7 +1,7 @@
 const CONFIG = {
   from: "me",
   serial: "000143",
-  ntfyTopic: "tomybossinggg",
+  ntfyTopic: "CHANGE-ME",
   calendarLabel: "I’ll suggest one",
   teaseMessage: "So you do like me HAHAHA",
   teaseDelayMs: 3000,
@@ -9,10 +9,10 @@ const CONFIG = {
   places: ["Dinner", "Coffee and a walk", "Something casual", "Surprise me"],
   showSealedNote: true,
   sealedNote: [
-  "I’m not good at saying things like this out loud, so I wrote it down.",
+    "I’m not good at saying things like this out loud, so I wrote it down.",
   "I like you, not just as friends, and I’d like to know if you feel the same way.",
   "We can talk about it on our date. Whatever you think, I’d rather you be honest than regret it later."
-]
+  ]
 };
 
 const DAY_OPTIONS = [...CONFIG.days, CONFIG.calendarLabel];
@@ -167,7 +167,7 @@ function calendarView() {
 function introView() {
   setMain(
     el("h1", "", "I like you."),
-    el("p", "", "I’d like to take you on a date Kristel."),
+    el("p", "", "I’d like to take you on a date."),
     el("p", "sub", "There’s more I want to tell you, but I’d rather say it in person.")
   );
   setStub(
@@ -186,7 +186,7 @@ function teaseView() {
 }
 
 function pickDateView() {
-  setMain(el("h1", "", "Pick a day."), el("p", "", "Whatever works for you. I’ll make it work.😉"));
+  setMain(el("h1", "", "Pick a day."), el("p", "", "Whatever works for you. I’ll make it work."));
   setStub(
     fieldsView(),
     calendarView(),

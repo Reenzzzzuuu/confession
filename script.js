@@ -1,7 +1,7 @@
 const CONFIG = {
   from: "me",
   serial: "000143",
-  ntfyTopic: "CHANGE-ME",
+  ntfyTopic: "tomybossinggg",
   calendarLabel: "I’ll suggest one",
   teaseMessage: "So you do like me HAHAHA",
   teaseDelayMs: 3000,

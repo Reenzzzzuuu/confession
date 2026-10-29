@@ -200,7 +200,7 @@ function pickDateView() {
 function planView() {
   if (state.when && state.where) return confirmView();
 
-  setMain(el("h1", "long", "I had a feeling."), el("p", "", "Now let’s plan it. Two quick choices."));
+  setMain(el("h1", "long", "Well, well."), el("p", "", "Someone said yes. Now pick a day."));
 
   const choosingPlace = Boolean(state.when);
   const options = choosingPlace ? CONFIG.places : DAY_OPTIONS;

@@ -1,17 +1,18 @@
 const CONFIG = {
-  from: "me",
+  from: "Renz",
   serial: "000143",
-  ntfyTopic: "tomybossinggg",
+  ntfyTopic: "tomybossinggg-qazxswedc",
   calendarLabel: "I’ll suggest one",
   teaseMessage: "Ohh, so you’re interested HAHAHAHA",
   teaseDelayMs: 3000,
   days: ["Friday evening", "Saturday", "Next week"],
   places: ["Dinner", "Coffee and a walk", "Something casual", "Surprise me"],
+  signature: "— Renz",
   showSealedNote: true,
   sealedNote: [
     "I’m not good at saying things like this out loud, so I wrote it down.",
-  "I like you, not just as friends, and I’d like to know if you feel the same way.",
-  "We can talk about it on our date. Whatever you think, I’d rather you be honest than regret it later."
+    "I like you, not just as friends, and I’d like to know if you feel the same way.",
+    "We can talk about it on our date. Whatever you think, I’d rather you be honest than regret it later."
   ]
 };
 
@@ -19,6 +20,23 @@ const DAY_OPTIONS = [...CONFIG.days, CONFIG.calendarLabel];
 const state = { when: "", where: "" };
 
 const $ = (id) => document.getElementById(id);
+
+function buzz(ms = 40) {
+  if (navigator.vibrate) navigator.vibrate(ms);
+}
+
+function celebrate() {
+  const hearts = ["♥", "💜", "✨"];
+  for (let i = 0; i < 16; i++) {
+    const heart = el("span", "heart", hearts[i % hearts.length]);
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 16 + Math.random() * 18 + "px";
+    heart.style.animationDuration = 2.6 + Math.random() * 2 + "s";
+    heart.style.animationDelay = Math.random() * 0.8 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5500);
+  }
+}
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -178,6 +196,7 @@ function introView() {
 }
 
 function teaseView() {
+  buzz();
   setMain(el("h1", "tease", CONFIG.teaseMessage));
   setStub(fieldsView(), btn("Continue", "link", planView));
   setTimeout(() => {
@@ -227,13 +246,13 @@ function planView() {
 }
 
 function confirmView() {
-  setMain(el("h1", "", "Almost there baby."), el("p", "", "Anything you’d like me to know baby? You can leave it empty. But I prefer if you say something.😉"));
+  setMain(el("h1", "long", "Almost there baby."), el("p", "", "Anything you’d like me to know? You can leave it empty, but I’d prefer it if you said something. 😉"));
 
   const note = el("textarea");
-  note.placeholder = "Optional note, like a time that suits you";
+  note.placeholder = "Optional note";
 
   const status = el("p", "sub");
-  const send = btn("Send to " + CONFIG.from, "go", async () => {
+  const send = btn("Send it 💌", "go", async () => {
     send.disabled = true;
     send.textContent = "Sending…";
     status.textContent = "";
@@ -278,22 +297,27 @@ function doneView() {
 
   setMain(...content);
   $("main").appendChild(el("div", "stamp", "Confirmed"));
+  buzz([40, 60, 40]);
+  celebrate();
   setStub(fieldsView(), ...(hasNote ? [btn("Open the note", "go", noteView)] : []));
 }
 
 function noteView() {
-  setMain(...CONFIG.sealedNote.map((line) => el("p", "", line)));
+  setMain(
+    ...CONFIG.sealedNote.map((line) => el("p", "", line)),
+    el("p", "sign", CONFIG.signature)
+  );
   setStub(fieldsView());
 }
 
 function laterView() {
   setMain(
-    el("h1", "", "Awww but it's okay."),
+    el("h1", "long", "Awww but it’s okay."),
     el("p", "", "Thank you for being honest with me. There’s no pressure at all.")
   );
 
   const attempt = async () => {
-    setStub(el("p", "sub", "Letting " + CONFIG.from + " know…"));
+    setStub(el("p", "sub", "Sending your answer…"));
     try {
       await notify("She said maybe another time.");
       setStub(el("p", "sub", "Sent. Thank you for being honest."));

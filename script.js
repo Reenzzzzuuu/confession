@@ -3,7 +3,7 @@ const CONFIG = {
   serial: "000143",
   ntfyTopic: "tomybossinggg",
   calendarLabel: "I’ll suggest one",
-  teaseMessage: "So you do like me HAHAHA",
+  teaseMessage: "Ohh, so you’re interested HAHAHAHA",
   teaseDelayMs: 3000,
   days: ["Friday evening", "Saturday", "Next week"],
   places: ["Dinner", "Coffee and a walk", "Something casual", "Surprise me"],

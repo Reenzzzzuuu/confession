@@ -1,10 +1,11 @@
 :root {
-  --bg: #14291f;
-  --paper: #f6ecc9;
-  --ink: #17221b;
-  --accent: #c8372d;
-  --soft: #6f6a54;
-  --line: rgba(23, 34, 27, 0.25);
+  --bg: #2b2540;
+  --glow: #3a3158;
+  --paper: #ece6f1;
+  --ink: #2a2338;
+  --accent: #7d5ba6;
+  --soft: #7a7088;
+  --line: rgba(42, 35, 56, 0.25);
   box-sizing: border-box;
 }
 
@@ -16,7 +17,7 @@ html,
 body {
   min-height: 100%;
   margin: 0;
-  background: radial-gradient(90% 70% at 50% 0%, #285240 0%, var(--bg) 70%) fixed;
+  background: radial-gradient(90% 60% at 50% 0%, var(--glow) 0%, var(--bg) 75%) fixed;
   font-family: 'Figtree', system-ui, sans-serif;
   color: var(--ink);
   -webkit-tap-highlight-color: transparent;
@@ -46,7 +47,7 @@ textarea:focus-visible {
   width: min(100%, 420px);
   background: var(--paper);
   border-radius: 22px;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.45);
   position: relative;
   animation: drop 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
 }
@@ -76,9 +77,11 @@ textarea:focus-visible {
   letter-spacing: -0.02em;
 }
 
+.main h1.long {
+  font-size: clamp(36px, 10.5vw, 52px);
+}
 
 .main h1.tease {
-  font-size: clamp(44px, 13vw, 64px);
   animation: pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1);
 }
 
@@ -94,11 +97,27 @@ textarea:focus-visible {
   font-size: 16px;
 }
 
+.main p.sign {
+  margin-top: 18px;
+  font: 500 30px 'Caveat', cursive;
+  color: var(--accent);
+  transform: rotate(-3deg);
+}
+
+.heart {
+  position: fixed;
+  bottom: -40px;
+  z-index: 10;
+  color: var(--accent);
+  pointer-events: none;
+  animation: float 3.5s ease-in forwards;
+}
+
 .perf {
   position: relative;
   height: 0;
   margin: 0 14px;
-  border-top: 2px dashed rgba(23, 34, 27, 0.3);
+  border-top: 2px dashed rgba(42, 35, 56, 0.3);
 }
 
 .perf::before,
@@ -158,7 +177,7 @@ textarea:focus-visible {
 
 .f b.empty {
   font-weight: 400;
-  color: rgba(23, 34, 27, 0.35);
+  color: rgba(42, 35, 56, 0.35);
 }
 
 .q {
@@ -231,9 +250,9 @@ textarea {
 .track {
   position: relative;
   height: 60px;
-  border: 1.5px solid rgba(23, 34, 27, 0.22);
+  border: 1.5px solid rgba(42, 35, 56, 0.22);
   border-radius: 30px;
-  background: rgba(23, 34, 27, 0.08);
+  background: rgba(42, 35, 56, 0.08);
   overflow: hidden;
   touch-action: none;
   user-select: none;
@@ -363,6 +382,17 @@ textarea {
   }
 }
 
+@keyframes float {
+  from {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-110vh) rotate(25deg);
+  }
+}
+
 @keyframes stamp {
   from {
     opacity: 0;
@@ -379,5 +409,9 @@ textarea {
   .stamp,
   .main h1.tease {
     animation: none;
+  }
+
+  .heart {
+    display: none;
   }
 }
